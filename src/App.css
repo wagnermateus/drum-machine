@@ -1,0 +1,28 @@
+.App{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10rem;
+}
+
+.drum-pads{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr; 
+  box-shadow: 5px 5px 15px 5px #B22222;
+}
+.drum-pad{
+  display: flex;
+  justify-content: center;
+  align-items:center;
+  width: 100px;
+  height: 100px;
+  border: 1px solid black;
+  box-shadow: 5px 5px;
+  background-color: #800000;
+  user-select: none;
+ 
+}
+.drum-pad:hover{
+  background-color: #B22222;
+  box-shadow: 5px 5px 15px 5px #B22222;
+}
