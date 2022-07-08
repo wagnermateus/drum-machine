@@ -3,6 +3,7 @@ import "./App.css";
 
 function App() {
   const [activeKey, setActiveKey] = useState("");
+  const [drumClassName, setDrumClassName] = useState("drum-pad");
   const soundProps = [
     {
       keyCode: 81,
@@ -54,7 +55,10 @@ function App() {
     const audio = document.getElementById(selector) as HTMLAudioElement;
    audio.play()
    setActiveKey(selector);
+   setTimeout(()=>{setActiveKey("");}, 3000)  
   }
+
+  
   useEffect(()=>{
     document.addEventListener('keydown', (event)=>{
       playSound(event.key.toUpperCase())
@@ -62,12 +66,14 @@ function App() {
   },[])
   return (
     <div className="App">
-      <div id="drum-machine">
-        <div id="display">{activeKey}</div>
+      <div id="drum-machine" className="drum-machine">
+        <div className="controls">
+         <div id="display" className="displaySoundName">{activeKey}</div> 
+        </div>      
         <div className="drum-pads">
           {soundProps.map((soundProp) => (
             <div 
-            className="drum-pad" 
+            className={activeKey===soundProp.text?"activeKey":"drum-pad"  }
             onClick={()=>playSound(soundProp.text)}
             id={soundProp.src}
             key={soundProp.text}
@@ -82,6 +88,7 @@ function App() {
           ))}
         </div>
       </div>
+      <p className="assignature">Developed by @WagnerMateus</p>
     </div>
   );
 }
