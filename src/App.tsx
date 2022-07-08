@@ -53,30 +53,35 @@ function App() {
   ];
   function playSound(selector: string) {
     const audio = document.getElementById(selector) as HTMLAudioElement;
-   audio.play()
-   setActiveKey(selector);
-   setTimeout(()=>{setActiveKey("");}, 3000)  
+    audio.play();
+    setActiveKey(selector);
+    setTimeout(() => {
+      setActiveKey("");
+    }, 500);
   }
 
-  
-  useEffect(()=>{
-    document.addEventListener('keydown', (event)=>{
-      playSound(event.key.toUpperCase())
-    })
-  },[])
+  useEffect(() => {
+    document.addEventListener("keydown", (event) => {
+      playSound(event.key.toUpperCase());
+    });
+  }, []);
   return (
     <div className="App">
       <div id="drum-machine" className="drum-machine">
         <div className="controls">
-         <div id="display" className="displaySoundName">{activeKey}</div> 
-        </div>      
+          <div id="display" className="displaySoundName">
+            {activeKey}
+          </div>
+        </div>
         <div className="drum-pads">
           {soundProps.map((soundProp) => (
-            <div 
-            className={activeKey===soundProp.text?"activeKey":"drum-pad"  }
-            onClick={()=>playSound(soundProp.text)}
-            id={soundProp.src}
-            key={soundProp.text}
+            <div
+              className={
+                activeKey === soundProp.text ? "activeKey" : "drum-pad"
+              }
+              onClick={() => playSound(soundProp.text)}
+              id={soundProp.src}
+              key={soundProp.text}
             >
               {soundProp.text}
               <audio

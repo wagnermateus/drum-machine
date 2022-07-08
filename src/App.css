@@ -36,8 +36,7 @@
   user-select: none;
 }
 .drum-pad:hover {
-  background-color: #b22222;
-  box-shadow: 5px 5px 15px 5px #b22222;
+  cursor: pointer;
 }
 .assignature {
   display: flex;
