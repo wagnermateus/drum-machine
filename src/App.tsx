@@ -1,9 +1,9 @@
-import { useEffect, useState } from "react";
+import { InputHTMLAttributes, useEffect, useState } from "react";
 import "./App.css";
 
 function App() {
   const [activeKey, setActiveKey] = useState("");
-  const [drumClassName, setDrumClassName] = useState("drum-pad");
+  const [volume, setVolume] = useState(100);
   const soundProps = [
     {
       keyCode: 81,
@@ -57,9 +57,12 @@ function App() {
     setActiveKey(selector);
     setTimeout(() => {
       setActiveKey("");
-    }, 500);
+    }, 500); 
+    audio.volume = volume/100; 
   }
-
+  
+  
+  
   useEffect(() => {
     document.addEventListener("keydown", (event) => {
       playSound(event.key.toUpperCase());
@@ -71,6 +74,15 @@ function App() {
         <div className="controls">
           <div id="display" className="displaySoundName">
             {activeKey}
+          </div>
+          <div>
+             <input 
+             type="range" 
+             min="0" max="100" 
+             step="1" 
+             id="volumeSlider"
+             onChange={((event)=>{setVolume(Number(event.target.value))})}
+             />
           </div>
         </div>
         <div className="drum-pads">

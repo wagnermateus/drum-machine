@@ -34,6 +34,7 @@
   box-shadow: 5px 5px;
   background-color: rgba(25,25,112, 0.1);
   user-select: none;
+  border-radius: 10px;
 }
 .drum-pad:hover {
   cursor: pointer;
@@ -70,4 +71,5 @@ text-align: center;
   user-select: none;
   background-color: #b22222;
   box-shadow: 5px 5px 15px 5px #b22222;
+  border-radius: 10px;
 }
