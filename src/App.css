@@ -47,18 +47,20 @@
 .controls{
   display: flex;
   width: 50%;
+  gap: 2.5rem;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
   padding: 1rem;
 }
-.displaySoundName{
+.display{
 border: 1px solid #b22222;
 display: inline;
 width: 50%;
 height: 20px;
 padding: 0.5rem;
 text-align: center;
+background-color: #fff;
 }
 .activeKey{
   display: flex;
@@ -72,4 +74,31 @@ text-align: center;
   background-color: #b22222;
   box-shadow: 5px 5px 15px 5px #b22222;
   border-radius: 10px;
+}
+[type="range"]{
+appearance: none;
+transform: scale(1);
+outline: none;
+background-color: #fff;
+border-radius: 10px;
+width: 100%;
+padding: 0.5rem;
+}
+[type="range"]::-moz-range-thumb{
+  appearance: none;
+ background-color: black;
+
+
+}
+[type="range"]::-webkit-slider-thumb{
+  appearance: none;
+ background-color: #001;
+ 
+
+}
+[type="range"]::-moz-range-progress{
+  appearance: none;
+ background-color: #b22222;
+height: 0.5rem;
+
 }

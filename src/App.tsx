@@ -72,15 +72,14 @@ function App() {
     <div className="App">
       <div id="drum-machine" className="drum-machine">
         <div className="controls">
-          <div id="display" className="displaySoundName">
-            {activeKey}
+          <div id="display" className="display">
+            {activeKey} 
           </div>
           <div>
              <input 
              type="range" 
              min="0" max="100" 
              step="1" 
-             id="volumeSlider"
              onChange={((event)=>{setVolume(Number(event.target.value))})}
              />
           </div>
